@@ -5,10 +5,11 @@
 <title>Registro</title>
 </head>
 <body>
-<p>El alumno registrado es: </p>
-
-Nombre: ${alumno.nombre}<br>
-Apellidos: ${alumno.apellidos}<br>
-Edad: ${alumno.edad}<br>
+	<p>El alumno registrado es: </p>
+	<ul>
+		<li>Nombre: ${alumno.nombre}</li>
+		<li>Apellidos: ${alumno.apellidos}</li>
+		<li>Edad: ${alumno.edad}</li>
+	</ul>
 </body>
 </html>

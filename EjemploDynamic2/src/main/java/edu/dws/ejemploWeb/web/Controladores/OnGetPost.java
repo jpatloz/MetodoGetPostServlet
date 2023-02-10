@@ -34,10 +34,6 @@ public class OnGetPost extends HttpServlet {
 		ClaseAlumno alumno = new ClaseAlumno(nombre, apellidos, nEdad);
 		request.setAttribute("alumno", alumno);
 		
-		System.out.println(alumno);
-		
-		
-		
 		RequestDispatcher rd;
 		rd = request.getRequestDispatcher("/vistas/registro.jsp");
 		rd.forward(request, response);
