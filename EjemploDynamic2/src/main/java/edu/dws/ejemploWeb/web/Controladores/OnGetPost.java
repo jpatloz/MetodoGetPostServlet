@@ -1,6 +1,8 @@
 package edu.dws.ejemploWeb.web.Controladores;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -25,8 +27,14 @@ public class OnGetPost extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("Ingresamos el metodo POST de MyServlet");
-		String nombrePersona = request.getParameter("nombre");
-		System.out.println(nombrePersona);
+		String nombre = request.getParameter("nombre");
+		String apellidos = request.getParameter("apellidos");
+		String edad = request.getParameter("edad");
+		int nEdad = Integer.parseInt(edad);
+		ClaseAlumno alumno = new ClaseAlumno(nombre, apellidos, nEdad);
+		request.setAttribute("alumno", alumno);
+		
+		System.out.println(alumno);
 		
 		
 		

@@ -3,13 +3,13 @@ package edu.dws.ejemploWeb;
 public class ClaseAlumno {
 
 	private String nombre;
-	private String apellido;
+	private String apellidos;
 	private int edad;
 	
-	public ClaseAlumno(String nombre, String apellido, int edad) {
+	public ClaseAlumno(String nombre, String apellidos, int edad) {
 		super();
 		this.nombre = nombre;
-		this.apellido = apellido;
+		this.apellidos = apellidos;
 		this.edad = edad;
 	}
 	
@@ -23,11 +23,11 @@ public class ClaseAlumno {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	public String getApellido() {
-		return apellido;
+	public String getApellidos() {
+		return apellidos;
 	}
-	public void setApellido(String apellido) {
-		this.apellido = apellido;
+	public void setApellidos(String apellidos) {
+		this.apellidos = apellidos;
 	}
 	public int getEdad() {
 		return edad;
@@ -38,6 +38,6 @@ public class ClaseAlumno {
 
 	@Override
 	public String toString() {
-		return "-Alumno: nombre: " + nombre + ", apellido: " + apellido + ", edad: " + edad + ".";
+		return "-Alumno: nombre: " + nombre + ", apellidos: " + apellidos + ", edad: " + edad + ".";
 	}	
 }

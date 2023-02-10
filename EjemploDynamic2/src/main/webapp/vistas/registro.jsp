@@ -5,12 +5,10 @@
 <title>Registro</title>
 </head>
 <body>
-<p>El usuario registrado es: </p>
-<%
-String nombrePersona = request.getParameter("nombre");
+<p>El alumno registrado es: </p>
 
-out.print(nombrePersona);
-%>
-
+Nombre: ${alumno.nombre}<br>
+Apellidos: ${alumno.apellidos}<br>
+Edad: ${alumno.edad}<br>
 </body>
 </html>
