@@ -4,6 +4,7 @@
   <artifactId>EjemploDynamic2</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>war</packaging>
+  
   <build>
     <plugins>
       <plugin>
@@ -19,35 +20,64 @@
       </plugin>
     </plugins>
   </build>
-  <properties>
-  	<org.springframework.version>5.0.6.RELEASE</org.springframework.version>
+  
+   <properties>
+      <org.springframework.version>5.0.6.RELEASE</org.springframework.version>
+      <org.springframework.data.version>2.0.7.RELEASE</org.springframework.data.version>
   </properties>
   <dependencies>
-  	<dependency>
-  		<groupId>org.springframework</groupId>
-  		<artifactId>spring-webmvc</artifactId>
-  		<version>${org.springframework.version}</version>
-  	</dependency>
-  	<dependency>
-  		<groupId>org.springframework</groupId>
-  		<artifactId>spring-test</artifactId>
-  		<version>${org.springframework.version}</version>
-  	</dependency>
-  	<dependency>
-  		<groupId>junit</groupId>
-  		<artifactId>junit</artifactId>
-  		<version>4.12</version>
-  		<scope>test</scope>
-  	</dependency>
-  	<dependency>
-  		<groupId>javax.servlet.jsp.jstl</groupId>
-  		<artifactId>javax.servlet.jsp.jstl-api</artifactId>
-  		<version>1.2.1</version>
-  	</dependency>
-  	<dependency>
-  		<groupId>org.apache.taglibs</groupId>
-  		<artifactId>taglibs-standard-impl</artifactId>
-  		<version>1.2.5</version>
-  	</dependency>
+      <dependency>
+          <groupId>org.springframework</groupId>
+          <artifactId>spring-webmvc</artifactId>
+          <version>${org.springframework.version}</version>
+      </dependency>
+      <dependency>
+          <groupId>org.springframework</groupId>
+          <artifactId>spring-test</artifactId>
+          <version>${org.springframework.version}</version>
+      </dependency>
+      <dependency>
+          <groupId>junit</groupId>
+          <artifactId>junit</artifactId>
+          <version>4.12</version>
+          <scope>test</scope>
+      </dependency>
+      <dependency>
+          <groupId>javax.servlet.jsp.jstl</groupId>
+          <artifactId>javax.servlet.jsp.jstl-api</artifactId>
+          <version>1.2.1</version>
+      </dependency>
+      <dependency>
+          <groupId>org.apache.taglibs</groupId>
+          <artifactId>taglibs-standard-impl</artifactId>
+          <version>1.2.5</version>
+      </dependency>
+      <dependency>
+          <groupId>org.hibernate</groupId>
+          <artifactId>hibernate-core</artifactId>
+          <version>5.2.17.Final</version>
+      </dependency>
+      <dependency>
+          <groupId>org.springframework.data</groupId>
+          <artifactId>spring-data-jpa</artifactId>
+          <version>${org.springframework.data.version}</version>
+      </dependency>
+      <dependency>
+          <groupId>org.postgresql</groupId>
+          <artifactId>postgresql</artifactId>
+          <version>42.5.0</version>
+      </dependency>
+<!-- automatiza mapeo de objetos -->
+      <dependency>
+        <groupId>javax.xml.bind</groupId>
+        <artifactId>jaxb-api</artifactId>
+        <version>2.3.0</version>
+    </dependency>
+<!-- version de java superior a la 10-->
+    <dependency>
+        <groupId>org.javassist</groupId>
+        <artifactId>javassist</artifactId>
+        <version>3.25.0-GA</version>
+    </dependency>
   </dependencies>
 </project>

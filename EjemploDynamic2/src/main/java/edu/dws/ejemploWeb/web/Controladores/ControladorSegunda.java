@@ -11,7 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import edu.dws.ejemploWeb.ClaseAlumno;
+import edu.dws.ejemploWeb.aplicacion.dal.GestionAlumnos;
 
 
 @Controller
@@ -21,9 +21,9 @@ public class ControladorSegunda {
 	    @RequestMapping(value="/segunda")
 	    public ModelAndView gestionSolicitud() {
 	        logger.info("Navegamos a la vista segunda");
-	        List<ClaseAlumno> alumno = new ArrayList();
-	        ClaseAlumno primerAlumno = new ClaseAlumno("Jesus", "Patricio Lozano", 21);
-	        ClaseAlumno segundoAlumno = new ClaseAlumno("Salva", "Sanchez Cardoso", 24);
+	        List<GestionAlumnos> alumno = new ArrayList();
+	        GestionAlumnos primerAlumno = new GestionAlumnos("Jesus", "Patricio Lozano", 21);
+	        GestionAlumnos segundoAlumno = new GestionAlumnos("Salva", "Sanchez Cardoso", 24);
 	        alumno.add(primerAlumno);
 	        alumno.add(segundoAlumno);
 	        Map<String, Object> clase = new HashMap<String, Object>();

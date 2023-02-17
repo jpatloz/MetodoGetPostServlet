@@ -11,12 +11,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import edu.dws.ejemploWeb.ClaseAlumno;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.stereotype.Controller;
+
+import edu.dws.ejemploWeb.aplicacion.dal.GestionAlumnos;
+
 
 
 @WebServlet("/OnGetPost")
+@Controller
 public class OnGetPost extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	//LLamamos a nuestro contexto.xml
+	//ApplicationContext context= new ClassPathXmlApplicationContext("contexto.xml");
 
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -31,7 +39,7 @@ public class OnGetPost extends HttpServlet {
 		String apellidos = request.getParameter("apellidos");
 		String edad = request.getParameter("edad");
 		int nEdad = Integer.parseInt(edad);
-		ClaseAlumno alumno = new ClaseAlumno(nombre, apellidos, nEdad);
+		GestionAlumnos alumno = new GestionAlumnos(nombre, apellidos, nEdad);
 		request.setAttribute("alumno", alumno);
 		
 		RequestDispatcher rd;
