@@ -33,6 +33,7 @@ public class OnGetPost extends HttpServlet {
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
+	/*
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("Ingresamos el metodo POST de MyServlet");
 		String nombre = request.getParameter("nombre");
@@ -46,5 +47,6 @@ public class OnGetPost extends HttpServlet {
 		rd = request.getRequestDispatcher("/vistas/registro.jsp");
 		rd.forward(request, response);
 	}
+	*/
 
 }

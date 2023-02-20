@@ -6,12 +6,9 @@ package edu.dws.ejemploWeb.aplicacion.dal;
 
 import java.util.List;
 
-public interface GestionOrdenadoresServicio {
+import org.springframework.data.repository.CrudRepository;
 
-	public void insertarOrdenador(GestionOrdenadores gestionOrdenadores);
+public interface GestionOrdenadoresServicio extends CrudRepository<GestionOrdenadores, Long>{
 
-	public List<GestionOrdenadores> buscarOrdenadores();
-	
-	public GestionOrdenadores buscarOrdenadorporIdAlum(long idALum);
 
 }

@@ -2,16 +2,12 @@ package edu.dws.ejemploWeb.aplicacion.dal;
 
 import java.util.List;
 
+import org.springframework.data.repository.CrudRepository;
+
 /*
  * Interfaz que contiene los métodos que hay que implementar 
  */
 
-public interface GestionAlumnosServicio {
-	public void insertarMatricula(GestionAlumnos gestionAlumnos);
+public interface GestionAlumnosServicio extends CrudRepository<GestionAlumnos, Long>{
 
-	public List<GestionAlumnos> buscarTodos();
-	
-	public void eliminarAlumno(long id);
-	
-	public GestionAlumnos buscarAlumnoPorIdOrdenador(long idOrd);
 }
