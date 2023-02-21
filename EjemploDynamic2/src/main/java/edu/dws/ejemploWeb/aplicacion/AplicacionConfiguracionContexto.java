@@ -26,7 +26,6 @@ import edu.dws.ejemploWeb.aplicacion.dal.GestionAlumnos;
 
 @PropertySource("classpath:archivo.properties")
 @EnableJpaRepositories("edu.dws.ejemploWeb.aplicacion.dal")
-@EnableTransactionManagement
 @Configuration
 @ComponentScan
 public class AplicacionConfiguracionContexto {
@@ -38,7 +37,7 @@ public class AplicacionConfiguracionContexto {
 	@Bean
 	public DataSource dataSource(){
 	    DriverManagerDataSource dataSource = new DriverManagerDataSource();
-	    dataSource.setDriverClassName(propiedades.getProperty("spring.dataSource.database"));
+	    dataSource.setDriverClassName(propiedades.getProperty("spring.dataSource.url"));
 	    dataSource.setUrl(propiedades.getProperty("spring.dataSource.database"));
 	    dataSource.setUsername(propiedades.getProperty("spring.dataSource.username"));
 	    dataSource.setPassword(propiedades.getProperty("spring.dataSource.password" ));
@@ -55,7 +54,7 @@ public class AplicacionConfiguracionContexto {
     	    
     	    HibernateJpaVendorAdapter jpaVendorAdapter = new HibernateJpaVendorAdapter();
       	    jpaVendorAdapter.setDatabase(Database.POSTGRESQL);
-    	    jpaVendorAdapter.setDatabasePlatform(propiedades.getProperty("org.hibernate.dialect.PostgreSQLDialect"));
+    	    jpaVendorAdapter.setDatabasePlatform(propiedades.getProperty("hibernate.dialect"));
     	    jpaVendorAdapter.setGenerateDdl(propiedades.getProperty("hibernate.generateDdl", Boolean.class));
     	    jpaVendorAdapter.setShowSql(propiedades.getProperty("hibernate.show_sql",Boolean.class));
     	    em.setJpaVendorAdapter(jpaVendorAdapter);

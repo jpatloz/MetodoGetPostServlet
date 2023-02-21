@@ -12,12 +12,13 @@
 	</c:forEach>
 -->	
 	
-	<h1><b>Registro de alumno</b></h1>
-	<form action="<%= request.getContextPath() %>/OnGetPost" method="Post">
-		<ul>Nombre: <input type="text" name="nombre" ></ul>
-		<ul>Apellidos: <input type="text" name="apellidos" ></ul>
-		<ul>Edad: <input type="text" name="edad" ></ul>
-		<ul><button type="submit">Enviar</button></ul>
-	</form>	
+	<h1><b>Registro de alumnos</b></h1>
+	
+	<c:forEach items="${miModelo.listaAlumnos}" var="alumno">
+      <c:out value="${alumno.nombre_alumno}"/> 
+      <i><c:out value="${alumno.apellidos_alumno}"/></i>
+      <br><br>
+    </c:forEach>
+	<a href="<c:url value="navegacionFormulario"/>">A formulario</a>
 </body>
 </html>

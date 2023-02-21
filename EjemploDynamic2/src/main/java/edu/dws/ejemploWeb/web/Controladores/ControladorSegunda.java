@@ -8,10 +8,14 @@ import java.util.Map;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import edu.dws.ejemploWeb.aplicacion.Servicios.Servicios;
@@ -25,51 +29,44 @@ import edu.dws.ejemploWeb.aplicacion.dto.GestionOrdenadoresDTO;
 
 @Controller
 public class ControladorSegunda {
+
+	@Autowired
+	Servicios consulta = new Servicios();
 	
-	ApplicationContext context= new ClassPathXmlApplicationContext("AplicacionConfiguracionContexto");
-	//LLamamos a la clase consultas y creamos una instancia 
-	Servicios consulta = (Servicios) context.getBean(Servicios.class);
-	
-	//Creamos el md_uuid de forma que se genere de forma aleatoria dentro de la base de datos
-	String md_uuid = java.util.UUID.randomUUID().toString();
-	
-	//Opcion del menu
-	Integer opcion1;
-	
-	//Creamos una lista para meter el id de ordenador
-	List<GestionOrdenadores> lista = new ArrayList();
-	lista = consulta.buscarOrdenadores();
-	
-	//Creamos una instancia de nuestras clases para Dao y Dto
-	ADtoServicioImpl aDto = new ADtoServicioImpl();
-	ADaoServicioImpl aDao = new ADaoServicioImpl();
-	
-	Calendar fecha = Calendar.getInstance();
-	
-	//DTO para el pago repostaje
-	GestionAlumnosDTO DTOAlumnos;
-	GestionAlumnos gestionAlumnos = new GestionAlumnos();
-			
-	//DTO para el control camiones
-	GestionOrdenadoresDTO DTOOrdenadores;
-	GestionOrdenadores gestionOrdenadores = new GestionOrdenadores();
 	
 	 protected final Log logger = LogFactory.getLog(getClass());
 	 
+	    
+	    
+	    List<GestionAlumnos> gestionAlumnos = new ArrayList<GestionAlumnos>();
+	    Map<String, Object> miModelo = new HashMap<String, Object>(); 
+	    
 	    @RequestMapping(value="/segunda")
 	    public ModelAndView gestionSolicitud() {
 	        logger.info("Navegamos a la vista segunda");
-	        List<GestionAlumnos> alumno = new ArrayList();
 	        
-	        System.out.println("Ha escogido la opcion de matricular a un alumno: ");
-			//Añadimos los valores al DTO de alumnos
-			DTOAlumnos = aDto.AGestionAlumnosDTO(fecha, "Jesus", "Patricio Lozano", "954654567", lista.get(1));
-			//Convertimos la consulta a DAO
-			gestionAlumnos = aDao.GestionAlumnosDTOADAO(DTOAlumnos);
-			alumno.add(gestionAlumnos);
-			
-	        Map<String, Object> clase = new HashMap<String, Object>();
-	        clase.put("atributos", alumno);
-	        return new ModelAndView("segunda", "clase", clase);
+	        miModelo.put("listaAlumnos", gestionAlumnos);
+	        return new ModelAndView("segunda", "miModelo", miModelo);
 	    } 
+	    
+	    @RequestMapping(value="/navegacionFormulario")
+	    public String navegacionFormulario(Model modelo) {
+	        logger.info("Navegamos al formulario");
+	        GestionAlumnos gestionAlumno = new GestionAlumnos();
+	        modelo.addAttribute("alumno", gestionAlumno);
+	        return "registro";
+	    } 
+	    
+	    @RequestMapping(value="/guardarAlumno",method = RequestMethod.POST)
+	    public ModelAndView guardarAlumno(@ModelAttribute("alumno") GestionAlumnos alumno){
+	    	logger.info("Navegamos al guardar alumno");
+	    	gestionAlumnos.add(alumno);  
+	        miModelo.put("mensaje","Todo ok");
+	        miModelo.put("listaAlumnos", gestionAlumnos);
+	        
+	    consulta.insertarUnaMatricula(alumno);
+	        
+	    	return new ModelAndView("segunda", "miModelo", miModelo);
+	    }
+	    
 }

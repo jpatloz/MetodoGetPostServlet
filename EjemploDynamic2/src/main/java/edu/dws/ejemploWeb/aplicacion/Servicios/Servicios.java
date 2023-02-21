@@ -6,12 +6,14 @@ import java.util.Optional;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import edu.dws.ejemploWeb.aplicacion.dal.GestionAlumnos;
 import edu.dws.ejemploWeb.aplicacion.dal.GestionAlumnosServicio;
 import edu.dws.ejemploWeb.aplicacion.dal.GestionOrdenadores;
 import edu.dws.ejemploWeb.aplicacion.dal.GestionOrdenadoresServicio;
 
+@Service
 public class Servicios{
 
 	@Autowired
