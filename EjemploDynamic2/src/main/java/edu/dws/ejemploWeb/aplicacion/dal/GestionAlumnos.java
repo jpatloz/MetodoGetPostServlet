@@ -14,7 +14,7 @@ import javax.persistence.TemporalType;
 
 
 @Entity
-@Table(name= "eje_srv_alu", schema= "dlk_eje_srv")
+@Table(name= "alu_tch_gestion", schema= "dlk_gmt_alu_ord")
 public class GestionAlumnos {
 
 	//ATRIBUTOS

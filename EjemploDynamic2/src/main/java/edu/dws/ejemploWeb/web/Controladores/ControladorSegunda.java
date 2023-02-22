@@ -35,10 +35,9 @@ public class ControladorSegunda {
 	
 	
 	 protected final Log logger = LogFactory.getLog(getClass());
-	 
-	    
 	    
 	    List<GestionAlumnos> gestionAlumnos = new ArrayList<GestionAlumnos>();
+	    List<GestionAlumnosDTO> gestionAlumnosDTO = new ArrayList<GestionAlumnosDTO>();
 	    Map<String, Object> miModelo = new HashMap<String, Object>(); 
 	    
 	    @RequestMapping(value="/segunda")
@@ -52,13 +51,13 @@ public class ControladorSegunda {
 	    @RequestMapping(value="/navegacionFormulario")
 	    public String navegacionFormulario(Model modelo) {
 	        logger.info("Navegamos al formulario");
-	        GestionAlumnos gestionAlumno = new GestionAlumnos();
-	        modelo.addAttribute("alumno", gestionAlumno);
+	        GestionAlumnos gestionAlumnos = new GestionAlumnos();
+	        modelo.addAttribute("insertarAlumno", gestionAlumnos);
 	        return "registro";
 	    } 
 	    
-	    @RequestMapping(value="/guardarAlumno",method = RequestMethod.POST)
-	    public ModelAndView guardarAlumno(@ModelAttribute("alumno") GestionAlumnos alumno){
+	    @RequestMapping(value="/insertarAlumno",method = RequestMethod.POST)
+	    public ModelAndView insertarAlumno(@ModelAttribute("insertarAlumno") GestionAlumnos alumno){
 	    	logger.info("Navegamos al guardar alumno");
 	    	gestionAlumnos.add(alumno);  
 	        miModelo.put("mensaje","Todo ok");
