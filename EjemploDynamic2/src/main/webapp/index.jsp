@@ -1,14 +1,13 @@
 <%@ include file="/vistas/cabecera.jsp" %>
 
-<%-- Redirección a segunda.jsp a través del controlador--%>
-<c:redirect url="/segunda"/>
-
 <html>
 <head>
 <title>AccesoEjemploWeb</title>
 </head>
 <body>
-	<h1>EJEMPLO APLICACIÓN WEB</h1>
-	<p>INDEX</p>
+	<h1>Gestión escolar</h1>
+	<a href="<c:url value="formularioAlumno"/>">1) Insertar Alumno</a><br>
+	<a href="<c:url value="formularioPortatil"/>">2) Baja de un alumno</a><br>
+	<a href="<c:url value="formularioPortatil"/>">3) Insertar portatil</a><br>
 </body>
 </html>

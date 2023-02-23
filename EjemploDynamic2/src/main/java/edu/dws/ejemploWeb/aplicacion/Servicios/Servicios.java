@@ -34,10 +34,10 @@ public class Servicios{
 	
 	//Consulta para eliminar a un alumno
 	
-	//@Transactional
-	//public void eliminarUnAlumno(long id) {
-	//	gas.deleteById(id);
-	//}
+	@Transactional
+	public void eliminarUnAlumno(long id) {
+		gas.deleteById(id);
+	}
 	
 	//COnsulta para buscar un alumno por id de ordenador
 	

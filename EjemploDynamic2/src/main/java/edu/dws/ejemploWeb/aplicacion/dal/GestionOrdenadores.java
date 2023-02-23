@@ -24,7 +24,7 @@ public class GestionOrdenadores {
 	private long id_ordenador;
 	@Column(name="md_uuid",nullable=false)
 	private String md_uuid;
-	@Column(name="md_date",nullable=false)
+	@Column(name="md_date",nullable=true)
 	@Temporal(TemporalType.TIMESTAMP)
 	private Calendar md_date;
 	@Column(name="modelo",nullable=false)
