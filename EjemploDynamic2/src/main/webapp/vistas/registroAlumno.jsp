@@ -21,6 +21,10 @@
                     <td><form:label path="num_telefono">Teléfono</form:label></td>
                     <td><form:input path="num_telefono"/></td>
                 </tr>
+             	<tr>
+                    <td><form:label path="id_ordenador">Id del ordenador asignado</form:label></td>
+                    <td><form:input path="id_ordenador"/></td>
+                </tr>
                 <tr>
                     <td><input type="submit" value="Guardar"/></td>
                 </tr>
