@@ -25,7 +25,7 @@ public class GestionAlumnos {
 	private long id_alumno;
 	@Column(name="md_uuid",nullable=false)
 	private String md_uuid;
-	@Column(name="md_date",nullable=true)
+	@Column(name="md_date",nullable=false)
 	@Temporal(TemporalType.TIMESTAMP)
 	private Calendar md_date;
 	@Column(name="nombre_alumno",nullable=false)

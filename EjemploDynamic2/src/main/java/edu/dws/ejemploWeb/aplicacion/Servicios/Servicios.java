@@ -28,7 +28,7 @@ public class Servicios{
 	
 	//Consulta para buscar todos los alumnos 
 	
-	public List<GestionAlumnos> buscarTodos(){
+	public List<GestionAlumnos> buscarAlumnos(){
         return (List<GestionAlumnos>) gas.findAll();
     }
 	
@@ -58,11 +58,12 @@ public class Servicios{
 			gos.save(gestionOrdenadores);
 		}
 
-		//Consulta para buscar un ordenador por id de alumno
+		/*//Consulta para buscar un ordenador por id de alumno
 		
-		//public GestionOrdenadores buscarOrdenadorPorIdAlumno(long idAlum) {
-		//	return gos.buscarOrdenadorporIdAlum(idAlum);
-		//}
+		public List<GestionOrdenadores> buscarOrdenador() {
+			return (List<GestionOrdenadores>) gos.findAll();
+		}
+		*/
 		
 		//Consulta para buscar un ordenador
 		public List<GestionOrdenadores> buscarOrdenadores() {

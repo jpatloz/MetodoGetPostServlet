@@ -22,6 +22,6 @@
                 </tr>
             </table>
         </form:form> 
-        <p>Mensaje del controlador: <c:out value="${miModelo.mensaje}"/></p>  
+        <p>Mensaje de confirmación: <c:out value="${miModelo.mensaje}"/></p>  
  </body>
 </html>

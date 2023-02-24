@@ -38,19 +38,20 @@ public class ControladorInsertPortatil {
 	 protected final Log logger = LogFactory.getLog(getClass());
 	    
 	 Map<String, Object> miModelo = new HashMap<String, Object>();
-	 ADaoServicio aDao = new ADaoServicioImpl();
-	 GestionOrdenadores gestionOrdenadores =new GestionOrdenadores();
+	 ADaoServicio aDao = new ADaoServicioImpl();	
 
 		 @RequestMapping(value="/formularioPortatil")
-		    public String navegacionFormulario(Model modelo) {
+		    public String formularioOrdenador(Model model) {
 		        logger.info("Navegamos al formulario");
-		        GestionOrdenadoresDTO gestionOrdenadores = new GestionOrdenadoresDTO();
-		        modelo.addAttribute("ordenadorInsertado", gestionOrdenadores);
+		        GestionOrdenadoresDTO gestionOrdenadoresDTO = new GestionOrdenadoresDTO();
+		        model.addAttribute("ordenadorInsertado", gestionOrdenadoresDTO);
 		        return "registroPortatil";
 		    } 
 
 		@RequestMapping(value = "/guardarPortatil", method = RequestMethod.POST)
 		public ModelAndView guardarPortatil(@ModelAttribute("ordenadorInsertado") GestionOrdenadoresDTO ordenadorInsertado) {
+			
+			GestionOrdenadores gestionOrdenadores =new GestionOrdenadores();
 			
 			gestionOrdenadores=aDao.GestionOrdenadoresDTOADAO(ordenadorInsertado);
 			
@@ -60,6 +61,4 @@ public class ControladorInsertPortatil {
 
 			return new ModelAndView("registroPortatil", "miModelo", miModelo);
 		}
-
-	    
 }

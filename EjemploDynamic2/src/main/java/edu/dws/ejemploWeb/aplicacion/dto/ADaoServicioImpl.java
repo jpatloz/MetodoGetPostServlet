@@ -1,5 +1,6 @@
 package edu.dws.ejemploWeb.aplicacion.dto;
 
+import java.util.Calendar;
 import java.util.Random;
 
 import edu.dws.ejemploWeb.aplicacion.dal.GestionAlumnos;
@@ -11,14 +12,16 @@ import edu.dws.ejemploWeb.aplicacion.dal.GestionOrdenadores;
 
 public class ADaoServicioImpl implements ADaoServicio{
 
+	Calendar fecha = Calendar.getInstance();
+	
 	@Override
 	public GestionAlumnos GestionAlumnosDTOADAO(GestionAlumnosDTO gestionAlumnosDTO){
 		String md_uuid = java.util.UUID.randomUUID().toString();
-		Random numero = new Random(5000);
+
 		GestionAlumnos gestionAlumnos = new GestionAlumnos();
 		if(gestionAlumnosDTO != null) {
 			gestionAlumnos.setMd_uuid(md_uuid);
-			gestionAlumnos.setMd_date(gestionAlumnosDTO.getMd_date());
+			gestionAlumnos.setMd_date(fecha);
 			gestionAlumnos.setNombre_alumno(gestionAlumnosDTO.getNombre_alumno());
 			gestionAlumnos.setApellidos_alumno(gestionAlumnosDTO.getApellidos_alumno());
 			gestionAlumnos.setNum_telefono(gestionAlumnosDTO.getNum_telefono());
@@ -35,6 +38,7 @@ public class ADaoServicioImpl implements ADaoServicio{
 		GestionOrdenadores gestionOrdenadores = new GestionOrdenadores();
 		if(gestionOrdenadoresDTO != null) {
 			gestionOrdenadores.setMd_uuid(md_uuid);
+			gestionOrdenadores.setMd_date(fecha);
 			gestionOrdenadores.setMd_date(gestionOrdenadoresDTO.getMd_date());
 			gestionOrdenadores.setMarca(gestionOrdenadoresDTO.getMarca());;
 			gestionOrdenadores.setModelo(gestionOrdenadoresDTO.getModelo());
